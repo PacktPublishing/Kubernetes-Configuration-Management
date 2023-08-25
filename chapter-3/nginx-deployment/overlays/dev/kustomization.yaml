@@ -4,8 +4,6 @@ kind: Kustomization
 resources:
   - ../../bases
 
-namespace: nginx-dev
-
 commonLabels:
   environment: dev
 
