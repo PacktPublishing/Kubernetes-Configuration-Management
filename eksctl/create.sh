@@ -16,3 +16,6 @@ eksctl create cluster \
  --nodes-min=$NODES_MIN \
  --nodes-max=$NODES_MAX \
  --managed
+
+# Update kubeconfig
+aws eks update-kubeconfig --name $CLUSTER_NAME
