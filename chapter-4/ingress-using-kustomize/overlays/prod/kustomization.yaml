@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - ../../bases
   - namespace.yaml
+  - ingress.yaml
 
 namespace: nginx-prod
 
@@ -12,4 +13,3 @@ commonLabels:
 
 patches:
   - path: deployment.yaml
-  - path: service.yaml
