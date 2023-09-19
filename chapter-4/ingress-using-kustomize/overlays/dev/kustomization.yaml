@@ -4,12 +4,24 @@ kind: Kustomization
 resources:
   - ../../bases
   - namespace.yaml
-  - ingress.yaml
 
-namespace: nginx-dev
+namespace: demo-dev
 
 commonLabels:
   environment: dev
 
 patches:
-  - path: deployment.yaml
+  - target:
+      kind: Deployment
+      name: demo-deployment
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/image
+        value: httpd:latest
+  - target:
+      kind: Ingress
+      name: demo-ingress
+    patch: |-
+      - op: replace
+        path: /spec/rules/0/host
+        value: dev.techdemos.site

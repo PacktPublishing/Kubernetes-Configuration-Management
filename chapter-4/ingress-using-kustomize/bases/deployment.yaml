@@ -1,19 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: demo-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: demo
   template:
     metadata:
       labels:
-        app: nginx
+        app: demo
     spec:
       containers:
-        - name: nginx
-          image: nginx:latest
+        - image: nginx:latest
+          name: demo
           ports:
             - containerPort: 80
+          resources:
+            limits:
+              cpu: 300m
+              memory: 256Mi
+            requests:
+              cpu: 200m
+              memory: 128Mi
