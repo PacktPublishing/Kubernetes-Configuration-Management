@@ -14,17 +14,8 @@ patches:
   - target:
       kind: Deployment
       name: demo-deployment
-    patch: |-
-      - op: replace
-        path: /spec/template/spec/containers/0/image
-        value: nginxdemos/hello:latest
-      - op: replace
-        path: /spec/replicas
-        value: 2
+    path: deployment-patch.json
   - target:
       kind: Ingress
       name: demo-ingress
-    patch: |-
-      - op: replace
-        path: /spec/rules/0/host
-        value: prod.techdemos.site
+    path: ingress-patch.json
