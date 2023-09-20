@@ -5,7 +5,7 @@ resources:
   - ../../bases
   - namespace.yaml
 
-namespace: demo-dev
+namespace: ns-dev
 
 commonLabels:
   environment: dev
@@ -13,14 +13,14 @@ commonLabels:
 patches:
   - target:
       kind: Deployment
-      name: demo-deployment
+      name: web-app-deployment
     patch: |-
       - op: replace
         path: /spec/template/spec/containers/0/image
         value: httpd:latest
   - target:
       kind: Ingress
-      name: demo-ingress
+      name: web-app-ingress
     patch: |-
       - op: replace
         path: /spec/rules/0/host

@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: demo-service
+  name: web-app-service
 spec:
   selector:
-    app: demo
+    app: web
   type: ClusterIP
   ports:
     - protocol: TCP

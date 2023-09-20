@@ -5,7 +5,7 @@ resources:
   - ../../bases
   - namespace.yaml
 
-namespace: demo-prod
+namespace: ns-prod
 
 commonLabels:
   environment: prod
@@ -13,9 +13,9 @@ commonLabels:
 patches:
   - target:
       kind: Deployment
-      name: demo-deployment
+      name: web-app-deployment
     path: deployment-patch.json
   - target:
       kind: Ingress
-      name: demo-ingress
+      name: web-app-ingress
     path: ingress-patch.json
